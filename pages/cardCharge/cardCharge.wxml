@@ -17,15 +17,15 @@
   </view>
 </view>
    <view class='money-container'>
-    <view class='{{ moneySelectIndex==1 ? "money-item-selected":"money-item-unselected"}}' bindtap='money_item_click' data-index="1">100元</view>
-    <view class='{{moneySelectIndex==2 ? "money-item-selected":"money-item-unselected"}}' bindtap='money_item_click' data-index="2">300元</view>
-    <view class='{{moneySelectIndex==3 ? "money-item-selected":"money-item-unselected"}}' bindtap='money_item_click' data-index="3">500元</view>
+    <view class='{{ moneySelectIndex==0 ? "money-item-selected":"money-item-unselected"}}' bindtap='money_item_click' data-index="0">100元</view>
+    <view class='{{moneySelectIndex==1 ? "money-item-selected":"money-item-unselected"}}' bindtap='money_item_click' data-index="1">300元</view>
+    <view class='{{moneySelectIndex==2 ? "money-item-selected":"money-item-unselected"}}' bindtap='money_item_click' data-index="2">500元</view>
   </view>
   <view class='money-container'>
-    <view class='{{moneySelectIndex==4 ? "money-item-selected":"money-item-unselected"}}' bindtap='money_item_click' data-index="4">1000元</view>
-    <view class='{{moneySelectIndex==5 ? "money-item-selected":"money-item-unselected"}}' bindtap='money_item_click' data-index="5">3000元</view>
-    <view class='{{moneySelectIndex==6 ?"money-item-selected":"money-item-unselected"}}' bindtap='money_item_click' data-index="6">5000元</view>
+    <view class='{{moneySelectIndex==3 ? "money-item-selected":"money-item-unselected"}}' bindtap='money_item_click' data-index="3">1000元</view>
+    <view class='{{moneySelectIndex==4 ? "money-item-selected":"money-item-unselected"}}' bindtap='money_item_click' data-index="4">3000元</view>
+    <view class='{{moneySelectIndex==5 ?"money-item-selected":"money-item-unselected"}}' bindtap='money_item_click' data-index="5">5000元</view>
   </view>
-  <input class="my-input-text" type="digit" placeholder="也可输入其他金额进行充值"  bindinput='bindInputName' value='{{dataObj.memberName}}' />
+  <input class="my-input-text" type="digit" placeholder="也可输入其他金额进行充值"  bindinput='bindInputChargeValue' value='{{dataObj.memberName}}' />
   <view class='daShangBtn' bindtap='chargeBtnClick'>充值</view>
 </view>
