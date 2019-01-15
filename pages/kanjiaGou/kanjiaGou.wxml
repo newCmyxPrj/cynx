@@ -1,0 +1,44 @@
+<scroll-view scroll-y class="scroll-container">
+  <view class='kan-jia-info'>
+    <image class='image-icon' src='{{}}'></image>
+    <text class='user-name'>梵高先生</text>
+    <text class='tips-1'>「朋友别走，来砍一刀」</text>
+    <view class='bottom-info-contianer'>
+      <image class='kan-jia-image' src='{{}}'></image>
+      <view class='info-container'>
+        <view class='info-1'>总监组洗剪吹全套护理</view>
+        <view class='item-second-line-container'>
+          <text class='item-price'>￥168</text>
+          <view class='origin-price'>
+            <text class='origin-price-text'>￥200</text>
+            <view class='origin-line'></view>
+          </view>
+        </view>
+        <view class='kan-yi-dao'>砍一刀</view>
+
+      </view>
+    </view>
+  </view>
+
+  <view class='me-too-kan-jia'>我也要砍价拿</view>
+  <view class='qi-ta-huo-dong-container'>
+    <view class='line-style' style='margin-left:150rpx;'></view>
+    <text style='padding:0rpx 30rpx;'>其他活动</text>
+    <view class='line-style'></view>
+  </view>
+  <view class='goods-container'>
+    <view class='goods-item' wx:for="{{[1,2,3,4,5]}}">
+      <image class='goods-img'></image>
+      <view class='goods-name one-line-with-dot'>剪艺组总监造型</view>
+      <view class='item-second-line-container' style='margin-bottom:30rpx;'>
+        <text class='item-price'>￥168</text>
+        <view class='origin-price'>
+          <text class='origin-price-text'>￥200</text>
+          <view class='origin-line'></view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+</scroll-view>

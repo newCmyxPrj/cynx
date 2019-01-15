@@ -1,0 +1,209 @@
+<!--index.wxml-->
+<view class="container">
+  <swiper class='swiper-container' indicator-dots="true" indicator-color="#BCBCBC" indicator-active-color="#fff" autoplay="{{true}}" interval="2000">
+    <block wx:for="{{banner_list}}" wx-for-item="item" wx:key="key">
+      <swiper-item>
+        <image src="{{item}}" class="swiper-item" mode='scaleToFill' bindtap='swiper_item_click' />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='shop-item'>
+    <view class='shop-name PingFangSC-Light'>
+      {{currentShopName=='' ? '未选择门店':currentShopName}}
+    </view>
+    <view class='swift-shops  PingFangSC-Regular' bindtap='switchShopsClick'>切换门店
+      <image class='right-arrow' src='/images/home/right_arrow.png'></image>
+    </view>
+    <view class='jia-ru-vip' bindtap='joinVipBtnClick'>加入贵宾</view>
+
+  </view>
+  <view class='item-container'>
+    <view class='time-period'>
+      <image style='width:28rpx;height:28rpx;margin-right:10rpx;' src='/images/home/timer_icon.png'></image>{{currentShopWorkTime=='' ? '工作时间为空':currentShopWorkTime}}
+    </view>
+  </view>
+
+  <view class='detail-address'>
+    <image style='width:23rpx;height:28rpx;margin-left:3rpx; margin-right:10rpx;' src='/images/home/address_icon.png'></image> {{currentShopAddress=='' ?'暂无地址':currentShopAddress}}</view>
+  <view class='flex-row' style='position:relative;height:152rpx;align-items:center;border-bottom:10rpx solid #eee'>
+    <view style='display:flex;width:350rpx;' bindtap='jia_mu_biao_click'>
+      <image class='price-item-icon' mode='aspectFit' src='/images/home/price_item_icon.png'></image>
+      <view class='price-item-content' style='margin-left:10rpx;'>
+        <text class='text1'>价目表</text>
+        <text class='text2'>服务与产品</text>
+      </view>
+    </view>
+    <view style='width:4rpx;height:50rpx;background-color:#eee'></view>
+    <view style='display:flex' bindtap='maiDanClick'>
+      <image class='mai-dan-item-icon' style='margin-left:80rpx;' mode='aspectFit' src='/images/home/maiDan.png'></image>
+      <view class='price-item-content' style='margin-left:10rpx;'>
+        <text class='text1'>买单</text>
+        <text class='text2'>在线已售(0)</text>
+      </view>
+    </view>
+    <!-- <image class='price-item-right-arrow' mode='aspectFit' src='/images/home/right_arrow.png'></image> -->
+  </view>
+  <view class='shop-artist-title' hidden='{{true}}'>门店
+    <text>手艺人</text>
+  </view>
+
+  <scroll-view scroll-x class='art-item-scroll-view' hidden='{{true}}'>
+
+    <view class='scroll-view-container'>
+      <view class='artist-item' wx:for='{{worksList}}' wx:key='ids' bindtap='artist_item_click' data-id='{{item.employeeInfoId}}'>
+        <image class='artist-icon' src='{{item.avatar}}'></image>
+        <text class='name one-line-with-dot'>{{item.nickName}}</text>
+        <text class='serviceCount one-line-with-dot'>服务{{item.serviceCount}}次</text>
+
+        <text class='rank one-line-with-dot'>{{item.positionName}}</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="huo-dong-container">
+    <view class='shop-artist-title'>活动
+      <text class='mytext'>拼团</text>
+    </view>
+    <scroll-view scroll-x class='huo-dong-ping-tuan-scroll-view'>
+      <view class='scroll-view-container'>
+
+        <view class='pin-tuan-item' wx:for='{{groupObj.list}}' wx:key='id'>
+          <image class='goods-img' src='{{item.showImages}}' mode='aspectFill'></image>
+          <view class='goods-title one-line-with-dot'>{{item.name}}</view>
+          <view class='price-item'>
+            <text class='goods-new-price one-line-with-dot'>￥{{item.pikePrice}}</text>
+            <view class='goods-old-price one-line-with-dot'>￥{{item.originalPrice}}
+              <view class='old-price-remove-line'></view>
+            </view>
+          </view>
+          <view class='pin-tuan-button' bindtap='qu_pin_tuan_btn_click' data-index='{{index}}'>去拼团</view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <view class='shop-artist-title'>限时
+      <text class='mytext'>秒杀</text>
+    </view>
+    <scroll-view scroll-x class='huo-dong-ping-tuan-scroll-view'>
+      <view class='scroll-view-container'>
+        <view class='pin-tuan-item' wx:for='{{spikeObj.list}}' wx:key='id'>
+          <image class='goods-img' src='{{item.showImages}}' mode='aspectFill'></image>
+          <text class='goods-title two-line-with-dot'>{{item.name}}</text>
+          <view class='price-item'>
+            <text class='goods-new-price one-line-with-dot'>￥{{item.pikePrice}}</text>
+            <view class='goods-old-price one-line-with-dot'>￥{{item.originalPrice}}
+              <view class='old-price-remove-line'></view>
+            </view>
+          </view>
+          <view class='pin-tuan-button' bindtap='miao_sha_btn_click' data-index='{{index}}'>秒杀</view>
+        </view>
+      </view>
+
+    </scroll-view>
+
+    <view class='shop-artist-title'>好友
+      <text class='mytext'>砍价</text>
+    </view>
+    <scroll-view scroll-x class='huo-dong-ping-tuan-scroll-view'>
+      <view class='scroll-view-container'>
+
+        <view class='pin-tuan-item' wx:for='{{bargainObj.list}}' wx:key='id'>
+          <image class='goods-img' src='{{item.showImages}}' mode='aspectFill'></image>
+          <text class='goods-title two-line-with-dot'>{{item.name}}</text>
+          <view class='price-item'>
+            <text class='goods-new-price one-line-with-dot'>￥{{item.pikePrice}}</text>
+            <view class='goods-old-price one-line-with-dot'>￥{{item.originalPrice}}
+              <view class='old-price-remove-line'></view>
+            </view>
+          </view>
+          <view class='pin-tuan-button' bindtap='kan_jia_btn_click' data-index='{{index}}'>砍价</view>
+        </view>
+      </view>
+
+    </scroll-view>
+  </view>
+
+
+  <view class="show-popup" hidden='{{!shopsSelectPopShowFlag}}'>
+    <view class="popup-mask" bindtap="closePopupTap"></view>
+    <view class="popup-contents">
+      <view class='title'>
+        <view catchtap='select_shops_cancel'>取 消</view>
+        <view>选择门店</view>
+        <view catchtap='select_shops_ok'>确 定</view>
+      </view>
+      <picker-view indicator-style="height:60px;" style="width:100%; height:350rpx;" value="{{currentSelectSexValue}}" bindchange="bindShopsSelectChange">
+        <picker-view-column>
+          <view wx:for="{{shopList}}" wx:key='idx1' style="line-height:60px;text-align:center">{{item.fullName}}</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+  </view>
+
+  <view style='width:100%;height:20rpx;background-color:#eee'></view>
+
+  <view class='shop-artist-title' style='margin-bottom:10rpx;'>
+    <view class='bg'></view>
+    <text style='z-index:2'>客户</text>
+    <text style='font-size:50rpx;z-index:2'>印</text>
+    <text style='z-index:2'>象</text>
+  </view>
+  <view class="selected-comment-container">
+    <block wx:for="{{commentObj}}" wx:key="ids5">
+      <view class='comment-item-unselected one-line-with-dot'>{{item.summary}}</view>
+    </block>
+    <view class='zan-wu-style' wx:if="{{commentObj.length==0}}">暂无信息</view>
+  </view>
+  <view style='width:100%;height:20rpx;background-color:#eee'></view>
+  <view class='shop-artist-title' style='margin-bottom:10rpx;'>
+    <view class='bg'></view>
+    <text style='z-index:2'>沙龙</text>
+    <text style='font-size:50rpx;z-index:2'>故</text>
+    <text style='z-index:2'>事</text>
+  </view>
+  <view class="sha-long-container">
+    “沙龙”一词最早源于意大利语单词"Salotto"，是法 语Salon一字的译音，原指法国上层人物住宅中的豪 华会客厅。从17世纪起，巴黎的名人（多半是名媛 贵妇）常把客厅变成著名的社交场所。
+  </view>
+
+
+  <view class="show-popup" hidden='{{!shopsSelectPopShowFlag}}'>
+    <view class="popup-mask" bindtap="closePopupTap"></view>
+    <view class="popup-contents">
+      <view class='title'>
+        <view catchtap='select_shops_cancel'>取 消</view>
+        <view>选择门店</view>
+        <view catchtap='select_shops_ok'>确 定</view>
+      </view>
+      <picker-view indicator-style="height:60px;" style="width:100%; height:350rpx;" value="{{currentSelectSexValue}}" bindchange="bindShopsSelectChange">
+        <picker-view-column>
+          <view wx:for="{{shopList}}" wx:key='idx1' style="line-height:60px;text-align:center">{{item.fullName}}</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+  </view>
+
+
+  <view class="show-remove-focus-popup" wx:if='{{joinVipPopWindowShowFlag}}' catchtouchmove='touchMove'>
+    <view class="popup-mask" catchtap="closeJoinVipPopup"></view>
+    <view class="popup-jia-ru-vip-contents" catchtap='donothing'>
+      <view class='vip-title'>加入贵宾</view>
+      <view class='item-container-vip' style='margin-top:40rpx;'>
+        <text style='width:130rpx;'>姓名</text>
+        <input class='input-style' placeholder='请输入姓名' bindinput="bindReceiveName" value='{{receiverName}}'></input>
+      </view>
+      <view class='item-container-vip'>
+        <text style='width:130rpx;'>手机号</text>
+        <input class='input-style' type="number" placeholder='输入手机号' bindinput="bindPhoneNum" value='{{phoneNum}}'></input>
+      </view>
+
+      <view class='item-container-vip'>
+        <text style='width:130rpx;'>验证码</text>
+        <input class='input-style' style='width:240rpx;' placeholder='输入验证码' bindinput="bindVerifyCode"></input>
+        <view class='yan-zheng-ma' bindtap='getPhoneCode'>{{timer
+          <60 ? timer+ "s后获取": "获取验证码"}}</view>
+        </view>
+        <view class='join-btn' bindtap='joinBtn'>加入</view>
+      </view>
+
+    </view>
+  </view>

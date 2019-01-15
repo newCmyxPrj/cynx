@@ -1,0 +1,81 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/yuYueInfo/yuYueInfo",
+    "pages/kanjiaGou/kanjiaGou",
+    "pages/orderDetail/orderDetail",
+    "pages/cutterSelect/cutterSelect",
+    "pages/huoDong/huoDong",
+    "pages/cardCharge/cardCharge",
+    "pages/my/my",
+    "pages/cardList/cardList",
+    "pages/zengSongYouHuiQuan/zengSongYouHuiQuan",
+    "pages/myYouHuiQuan/myYouHuiQuan",
+    "pages/maiDan/maiDan",
+    "pages/yuYue/yuYue",
+    "pages/miaoSha/miaoSha",
+    "pages/kanJia/kanJia",
+    "pages/pinTuan/pinTuan",
+    "pages/daShang/daShang",
+    "pages/logs/logs",
+    "pages/comment/comment",
+    "pages/myOrderList/myOrderList",
+    "pages/address/address",
+    "pages/artWorks/artWorks",
+    "pages/priceTable/priceTable",
+    "pages/addressAdd/addressAdd",
+    "pages/login/login",
+    "pages/getPhone/getPhone",
+    "pages/expressWay/expressWay",
+    "pages/resetMima/resetMima",
+    "pages/modifyBindPhone/modifyBindPhone",
+    "pages/orderConfirm/orderConfirm",
+    "pages/consumerDetails/consumerDetails",
+    "pages/jiFenGoodsDetail/jiFenGoodsDetail",
+    "pages/meiyuanMall/meiyuanMall",
+    "pages/personalHome/personalHome",
+    "pages/orderList/index",
+    "pages/artDetail/artDetail",
+    "pages/yuYueRecord/yuYueRecord",
+    "pages/orderPay/orderPay"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#e64340",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "box-shadow": "0 0 6px 0",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "images/nav/home_icon.png",
+        "selectedIconPath": "images/nav/home_icon_selected.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/yuYue/yuYue",
+        "iconPath": "images/nav/yu_yue_unselect.png",
+        "selectedIconPath": "images/nav/yu_yue_select.png",
+        "text": "预约"
+      },
+      {
+        "pagePath": "pages/artWorks/artWorks",
+        "iconPath": "images/nav/art_work_nav.png",
+        "selectedIconPath": "images/nav/art_work_select_nav.png",
+        "text": "作品"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "images/nav/my_icon.png",
+        "selectedIconPath": "images/nav/my_icon_selected_nav.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

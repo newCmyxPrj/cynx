@@ -1,0 +1,271 @@
+<!--pages/huoDong/huoDong.wxml-->
+<!--index.wxml-->
+<view class="my-container">
+  <view class='focus-type-container'>
+    <view class='left-part {{titleSelectIndex==0 ? "select-color":""}}' bindtap='title_item_click' data-index="0">
+      <view class='title'>秒杀</view>
+      <view class='{{titleSelectIndex==0 ? "title-select":""}}'></view>
+    </view>
+    <view class='right-part {{titleSelectIndex==1 ? "select-color":""}}' bindtap='title_item_click' data-index="1">
+      <view class='title'>团购</view>
+      <view class='{{titleSelectIndex==1 ? "title-select":""}}'></view>
+    </view>
+    <view class='right-part {{titleSelectIndex==2 ? "select-color":""}}' bindtap='title_item_click' data-index="2">
+      <view class='title'>砍价</view>
+      <view class='{{titleSelectIndex==2 ? "title-select":""}}'></view>
+    </view>
+  </view>
+
+  <scroll-view scroll-y class="scroll-container">
+    <!-- 秒杀模块 -->
+
+    <view wx:if="{{titleSelectIndex==0}}" wx:for="{{spikeDataObj.list}}" wx:key="ids">
+      <view class='miao-sha-item'>
+        <view class='item-content-1'>
+          <view class='miao-sha-time'>秒杀时间：{{item.createTime}}</view>
+          <view class='dai-shi-yong'>待使用</view>
+        </view>
+        <view class='item-content-2'>
+          <image class='icon-pic' src='{{item.showImages}}'></image>
+          <view class='middle-info'>
+            <view class='info-1'>
+              <view class='info-name one-line-with-dot'>{{item.activityName}}</view>
+              <text>X1</text>
+            </view>
+            <view class='info-2'>{{item.projectName}}</view>
+            <view class='item-second-line-container'>
+              <text class='item-price'>￥{{item.spikePrice}}</text>
+              <view class='origin-price'>
+                <text class='origin-price-text'>￥{{item.originalPrice}}</text>
+                <view class='origin-line'></view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='shi-yong-container'>
+          <view class='shi-yong-button' bindtap='spikeUseBtnClick'>使用</view>
+        </view>
+      </view>
+
+      <!-- <view class='miao-sha-item' style='margin-top:20rpx;'>
+        <view class='item-content-1'>
+          <view class='miao-sha-time'>秒杀时间：2018.12.24</view>
+          <view class='dai-shi-yong' style='color:#999'>已使用</view>
+        </view>
+        <view class='item-content-2'>
+          <image class='icon-pic'></image>
+          <view class='middle-info'>
+            <view class='info-1'>
+              <view class='info-name one-line-with-dot'>总监组剪发造型秒杀价</view>
+              <text>X1</text>
+            </view>
+            <view class='info-2'>洗吹</view>
+            <view class='item-second-line-container'>
+              <text class='item-price'>￥168</text>
+              <view class='origin-price'>
+                <text class='origin-price-text'>￥200</text>
+                <view class='origin-line'></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view> -->
+    </view>
+
+
+    <!-- 团购模块 -->
+    <view wx:if="{{titleSelectIndex==1}}">
+      <view class='miao-sha-item'>
+        <view class='item-content-1'>
+          <view class='miao-sha-time'>拼团时间：2018.12.24</view>
+          <view class='dai-shi-yong'>待使用</view>
+        </view>
+        <view class='item-content-2'>
+          <image class='icon-pic'></image>
+          <view class='middle-info'>
+            <view class='info-1'>
+              <view class='info-name one-line-with-dot'>总监组剪发造型秒杀价</view>
+              <text>X1</text>
+            </view>
+            <view class='info-2'>洗吹</view>
+            <view class='item-second-line-container'>
+              <text class='item-price'>￥168</text>
+              <view class='origin-price'>
+                <text class='origin-price-text'>￥200</text>
+                <view class='origin-line'></view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='shi-yong-container'>
+          <view class='shi-yong-button'>使用</view>
+        </view>
+      </view>
+
+      <view class='miao-sha-item' style='margin-top:20rpx;'>
+        <view class='item-content-1'>
+          <view class='miao-sha-time'>拼团时间：2018.12.24</view>
+          <view class='dai-shi-yong'>还差一人</view>
+        </view>
+        <view class='item-content-2'>
+          <image class='icon-pic'></image>
+          <view class='middle-info'>
+            <view class='info-1'>
+              <view class='info-name one-line-with-dot'>总监组剪发造型秒杀价</view>
+              <text>X1</text>
+            </view>
+            <view class='info-2'>洗吹</view>
+            <view class='item-second-line-container'>
+              <text class='item-price'>￥168</text>
+              <view class='origin-price'>
+                <text class='origin-price-text'>￥200</text>
+                <view class='origin-line'></view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='shi-yong-container'>
+          <view class='shi-yong-button'>分享好友</view>
+        </view>
+      </view>
+
+
+      <view class='miao-sha-item' style='margin-top:20rpx;'>
+        <view class='item-content-1'>
+          <view class='miao-sha-time'>使用时间：2018.12.24</view>
+          <view class='dai-shi-yong' style='color:#999'>已使用</view>
+        </view>
+        <view class='item-content-2'>
+          <image class='icon-pic'></image>
+          <view class='middle-info'>
+            <view class='info-1'>
+              <view class='info-name one-line-with-dot'>总监组剪发造型秒杀价</view>
+              <text>X1</text>
+            </view>
+            <view class='info-2'>洗吹</view>
+            <view class='item-second-line-container'>
+              <text class='item-price'>￥168</text>
+              <view class='origin-price'>
+                <text class='origin-price-text'>￥200</text>
+                <view class='origin-line'></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+
+    <!-- 砍价模块 -->
+    <view wx:if="{{titleSelectIndex==2}}">
+      <view class='miao-sha-item'>
+        <view class='item-content-1'>
+          <view class='miao-sha-time'>发起时间：2018.12.24</view>
+          <view class='dai-shi-yong'>待使用</view>
+        </view>
+        <view class='item-content-2'>
+          <image class='icon-pic'></image>
+          <view class='middle-info'>
+            <view class='info-1'>
+              <view class='info-name one-line-with-dot'>总监组剪发造型秒杀价</view>
+              <text>X1</text>
+            </view>
+            <view class='info-2'>洗吹</view>
+            <view class='item-second-line-container'>
+              <text class='item-price'>￥168</text>
+              <view class='origin-price'>
+                <text class='origin-price-text'>￥200</text>
+                <view class='origin-line'></view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='shi-yong-container'>
+          <view class='shi-yong-button'>使用</view>
+        </view>
+      </view>
+
+
+      <view class='miao-sha-item' style='margin-top:20rpx;'>
+        <view class='item-content-1'>
+          <view class='miao-sha-time'>发起时间：2018.12.24</view>
+          <view class='dai-shi-yong'>还需80元</view>
+        </view>
+        <view class='item-content-2'>
+          <image class='icon-pic'></image>
+          <view class='middle-info'>
+            <view class='info-1'>
+              <view class='info-name one-line-with-dot'>总监组剪发造型秒杀价</view>
+              <text>X1</text>
+            </view>
+            <view class='info-2'>洗吹</view>
+            <view class='item-second-line-container'>
+              <text class='item-price'>￥168</text>
+              <view class='origin-price'>
+                <text class='origin-price-text'>￥200</text>
+                <view class='origin-line'></view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='shi-yong-container'>
+          <view class='shi-yong-button'>分享好友</view>
+        </view>
+      </view>
+
+
+      <view class='miao-sha-item' style='margin-top:20rpx;'>
+        <view class='item-content-1'>
+          <view class='miao-sha-time'>发起时间：2018.12.24</view>
+          <view class='dai-shi-yong'>待付款</view>
+        </view>
+        <view class='item-content-2'>
+          <image class='icon-pic'></image>
+          <view class='middle-info'>
+            <view class='info-1'>
+              <view class='info-name one-line-with-dot'>总监组剪发造型秒杀价</view>
+              <text>X1</text>
+            </view>
+            <view class='info-2'>洗吹</view>
+            <view class='item-second-line-container'>
+              <text class='item-price'>￥168</text>
+              <view class='origin-price'>
+                <text class='origin-price-text'>￥200</text>
+                <view class='origin-line'></view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='shi-yong-container'>
+          <view class='shi-yong-button'>立即付款</view>
+        </view>
+      </view>
+
+
+      <view class='miao-sha-item' style='margin-top:20rpx;'>
+        <view class='item-content-1'>
+          <view class='miao-sha-time'>使用时间：2018.12.24</view>
+          <view class='dai-shi-yong' style='color:#999'>已使用</view>
+        </view>
+        <view class='item-content-2'>
+          <image class='icon-pic'></image>
+          <view class='middle-info'>
+            <view class='info-1'>
+              <view class='info-name one-line-with-dot'>总监组剪发造型秒杀价</view>
+              <text>X1</text>
+            </view>
+            <view class='info-2'>洗吹</view>
+            <view class='item-second-line-container'>
+              <text class='item-price'>￥168</text>
+              <view class='origin-price'>
+                <text class='origin-price-text'>￥200</text>
+                <view class='origin-line'></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

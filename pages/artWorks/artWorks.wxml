@@ -1,0 +1,14 @@
+<!--pages/artWorks/artWorks.wxml-->
+<view class='my-container'>
+  <view class='art-works-flex-column' wx:for="{{dataList}}" wx:key='ids'>
+    <image class='art-image' mode='scaleToFill' src='{{item.worksImgs[0]}}'  mode='aspectFill'  bindtap='goToDetail' data-index="{{index}}"/>
+    <view class='flex-row-1'>
+      <image class='art-image-artist-icon' src='{{item.avatar}}' mode='scaleToFill'/>
+      <view class='flex-column-1 one-line-with-dot'>
+        <text class='artist-name'>{{item.nickName}}</text>
+        <text class='artist-rank'>{{item.positionName}}</text>
+      </view>
+    </view>
+  </view>
+
+</view>

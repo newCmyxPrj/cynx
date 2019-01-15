@@ -1,0 +1,26 @@
+<!--pages/daShang/daShang.wxml-->
+<view class='my-container'>
+  <view class='head-container'>
+    <view class='member-icons'>
+      <view style='display:flex;'>
+        <image class='member-image-icon' wx:for="{{dataObj.users}}" wx:key="ids"  src='{{item.avatar}}'></image>
+      </view>
+    </view>
+    <view class='da-shang-info'>共有{{dataObj.users.length}}位好友打赏</view>
+  </view>
+  <image class='head-icon' src='{{dataObj.employeeInfoDTO.avatar}}'></image>
+  <view class='name'>{{dataObj.employeeInfoDTO.nickName}}</view>
+  <view class='rank'>{{dataObj.employeeInfoDTO.positionName}}</view>
+  <view class='money-container'>
+    <view class='{{ moneySelectIndex==1 ? "money-item-selected":"money-item-unselected"}}' bindtap='money_item_click' data-index="1">2元</view>
+    <view class='{{moneySelectIndex==2 ? "money-item-selected":"money-item-unselected"}}' bindtap='money_item_click' data-index="2">5元</view>
+    <view class='{{moneySelectIndex==3 ? "money-item-selected":"money-item-unselected"}}' bindtap='money_item_click' data-index="3">10元</view>
+  </view>
+  <view class='money-container'>
+    <view class='{{moneySelectIndex==4 ? "money-item-selected":"money-item-unselected"}}' bindtap='money_item_click' data-index="4">50元</view>
+    <view class='{{moneySelectIndex==5 ? "money-item-selected":"money-item-unselected"}}' bindtap='money_item_click' data-index="5">100元</view>
+    <view class='{{moneySelectIndex==6 ?"money-item-selected":"money-item-unselected"}}' bindtap='money_item_click' data-index="6">200元</view>
+  </view>
+  <input class="my-input-text" type="digit" placeholder="也可输入其他金额进行打赏"  bindinput='bindMoneyChange'/>
+  <view class='daShangBtn' bindtap='daShangBtnClick'>打赏</view>
+</view>

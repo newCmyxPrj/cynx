@@ -1,0 +1,134 @@
+/* pages/myYouHuiQuan/myYouHuiQuan.wxss */
+
+.my-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0rpx 0rpx;
+  box-sizing: border-box;
+  position: fixed;
+  background-color: #f3f3f3;
+}
+
+.focus-type-container {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  color: #000;
+  font-size: 28rpx;
+  position: fixed;
+  background-color: #fff;
+  z-index: 3;
+}
+
+.focus-type-container .left-part {
+  flex: 1;
+  height: 70rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.focus-type-container .middle-part {
+  width: 0rpx;
+  height: 46rpx;
+  background-color: #c0a369;
+}
+
+.focus-type-container .right-part {
+  position: relative;
+  flex: 1;
+  height: 70rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.select-color {
+  color: #f42c90;
+}
+
+.title-select {
+  width: 80rpx;
+  height: 2rpx;
+  position: absolute;
+  background-color: #f42c90;
+  bottom: 5rpx;
+}
+
+.coupon-container {
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  width: 690rpx;
+  height: 242rpx;
+  background-color: #fff;
+}
+
+.coupon-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding-left: 40rpx;
+  box-sizing: border-box;
+  flex-direction: column;
+  position: relative;
+}
+
+.zhuan-zeng {
+  width: 156rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  text-align: center;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 27rpx;
+  border: 2rpx solid rgba(244, 44, 144, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(244, 44, 144, 1);
+  margin-right: 40rpx;
+}
+
+.text1 {
+  margin-top: 38rpx;
+  color: #333;
+  height: 72rpx;
+  font-size: 72rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.text2 {
+  margin-top: 20rpx;
+  height: 24rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+  line-height: 24rpx;
+}
+
+.text3 {
+  margin-top: 42rpx;
+  height: 24rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(102, 102, 102, 1);
+  line-height: 24rpx;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar {
+  width: 4rpx;
+  background-color: #eee;
+}

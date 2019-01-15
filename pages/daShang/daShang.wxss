@@ -1,0 +1,143 @@
+/* pages/daShang/daShang.wxss */
+
+.my-container {
+  height: 100%;
+  background-color: #f3f3f3;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.head-container {
+  width: 750rpx;
+  height: 358rpx;
+  background: rgba(204, 65, 57, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.member-icons {
+  display: flex;
+  height: 50rpx;
+  margin-top: 30rpx;
+  justify-content: space-around;
+}
+
+.member-image-icon {
+  margin-left: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  background-color: #eee;
+}
+
+.da-shang-info {
+  margin-top: 30rpx;
+  text-align: center;
+  height: 24rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(221, 221, 221, 1);
+  line-height: 24rpx;
+}
+
+.head-icon {
+  position: relative;
+  top: -70rpx;
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  background-color: #eee;
+}
+
+.name {
+  position: relative;
+  top: -50rpx;
+  text-align: center;
+  height: 40rpx;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  line-height: 40rpx;
+}
+
+.rank {
+  position: relative;
+  top: -40rpx;
+  text-align: center;
+  height: 40rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(153, 153, 153, 1);
+  line-height: 24rpx;
+}
+
+.money-container {
+  margin-top: 40rpx;
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0rpx 15rpx;
+  justify-content: space-around;
+}
+
+.money-item-selected {
+  width: 216rpx;
+  height: 100rpx;
+  background: rgba(245, 237, 241, 1);
+  border-radius: 4rpx;
+  border: 2rpx solid rgba(227, 82, 154, 1);
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  color: rgba(244, 44, 144, 1);
+}
+
+.money-item-unselected {
+  width: 216rpx;
+  height: 100rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 4rpx;
+  border: 2rpx solid rgba(216, 216, 216, 1);
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  color: #666;
+}
+
+.my-input-text {
+  width: 670rpx;
+  height: 80rpx;
+  margin-top: 50rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 8rpx;
+  border: 2rpx solid rgba(216, 216, 216, 1);
+  padding-left: 30rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(153, 153, 153, 1);
+}
+
+.daShangBtn {
+  margin-top: 60rpx;
+  width: 670rpx;
+  height: 80rpx;
+  background: rgba(244, 44, 144, 1);
+  border-radius: 8rpx;
+  text-align: center;
+  font-size: 36rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  line-height: 80rpx;
+}

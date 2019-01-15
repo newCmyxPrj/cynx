@@ -1,0 +1,36 @@
+<!--pages/yuYueRecord/yuYueRecord.wxml-->
+<scroll-view scroll-y class="scroll-container">
+
+
+  <view>
+    <view class='miao-sha-item' style='margin-top:30rpx;' wx:for="{{dataObj}}" wx:key="ids">
+      <view class='item-content-1'>
+        <view class='miao-sha-time'>预约时间：{{item.startTime}}</view>
+        <view class='dai-shi-yong'>已预约</view>
+      </view>
+      <view class='item-container'>
+        <image class='image-icon' src='{{item.avatar}}'>
+        </image>
+        <view class='info-container'>
+          <view class='name'>{{item.nickName}}
+            <text class='rank'>剪艺组总监</text>
+          </view>
+          <view class='service-count'>{{item.name}}</view>
+         
+         <view class='service-count'> 预约项目：{{item.serverType}}</view>
+
+        </view>
+        <view class='right-part-container'>
+          <view class='dashan' bindtap='cancelYuYueBtnClick' data-index="{{index}}">取消预约</view>
+        </view>
+      </view>
+
+      <view class='mendian-container'>
+      <text>门店地址</text>
+      <text bindtap='phoneCallClick' data-phone='{{item.phone}}'> 电话咨询</text>
+      </view>
+    </view>
+
+  </view>
+
+</scroll-view>

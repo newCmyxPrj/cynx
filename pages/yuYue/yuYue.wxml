@@ -1,0 +1,24 @@
+<!--pages/yuYue/yuYue.wxml-->
+<view class='container'>
+  <view class='item-container' wx:for="{{dataObj}}" wx:key="ids">
+    <image class='image-icon' bindtap='goToPersonalHome' data-index='{{index}}'>
+    </image>
+    <view class='info-container'>
+      <view class='name'>{{item.nickName}}
+        <text class='rank'>{{item.positionName}}</text>
+      </view>
+      <view class='service-count'>服务{{item.serviceCount}}次</view>
+      <view class='item-second-line-container'>
+        <text class='item-price'>￥{{item.haircutNowPrice}}</text>
+        <view class='origin-price'>
+          <text class='origin-price-text'>￥{{item.haircutOriginalPrice}}</text>
+          <view class='origin-line'></view>
+        </view>
+      </view>
+    </view>
+    <view class='right-part-container'>
+    <view class='yuyue' bindtap='goToYuYue' data-index='{{index}}'>预约</view>
+    <view class='dashan' bindtap='daShanBtn'  data-index='{{index}}'>打赏</view>
+    </view>
+  </view>
+</view>

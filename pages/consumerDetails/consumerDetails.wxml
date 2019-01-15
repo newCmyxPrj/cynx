@@ -1,0 +1,13 @@
+<!--pages/consumerDetails/consumerDetails.wxml-->
+<view class='container'>
+  <view class='search-bg' hidden='{{true}}'>
+  <view class='search' bindtap='seachClick' hidden='{{true}}'>搜索</view>
+  </view>
+  <view class='consume-record-item' wx:for='{{dataObj}}' wx:key='ids'>
+  <view class='record-item-left-part'>
+  <view class='left-content'>{{item.projectName}}  <text class='cutter'>发型师：{{item.nickName}}</text></view>
+  <text class='left-content-time'>{{item.completeTime}}  {{item.storeName}}</text>
+  </view>
+  <text class='right-content-price'>{{item.totalAmount}}元</text>
+  </view>
+</view> 

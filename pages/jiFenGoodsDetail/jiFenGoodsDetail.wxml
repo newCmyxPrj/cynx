@@ -1,0 +1,46 @@
+<view class='container'>
+  <swiper class='swiper-container' indicator-dots="{{false}}" autoplay="true" interval="2000" bindchange='bindSwiperChange'>
+    <block wx:for="{{dataObj.imgList}}" wx-for-item="item" wx:key="key">
+      <swiper-item>
+        <view class='swiper-item-container'>
+          <image src="{{item}}" class="swiper-item" />
+          <view class='indicator-view'>
+            {{banner_index}}/{{dataObj.imgList.length}}
+          </view>
+        </view>
+
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='title-name two-line-with-dot PingFangSC-Semibold'>{{dataObj.commodityName}}</view>
+  <view class='price-item-container' hidden='{{true}}'>
+    <text class='price'>{{dataObj.needPoint}}</text>
+    <text class='price-dan-wei'>美元</text>
+    <text class='info1'>市场价格</text>
+    <view class='origin-price'>
+      <text class='origin-price-text'>￥{{dataObj.marketPrice}}</text>
+      <view class='origin-line'></view>
+    </view>
+  </view>
+  <view class='goods-detail-title'>暂无更多</view>
+  <view style='margin-bottom:100rpx;'></view>
+    <view class="show-remove-focus-popup" catchtouchmove='touchMove'>
+    <view class='popup-mask'> 
+    <view class='pop-content'>
+      <view class='pop-title'>支付价格</view>
+      <view class='pop-price'>{{dataObj.needPoint}}美元</view>
+      <view style='width:100%;height:1rpx;background-color:#eee;'></view>
+    <view class='person-num-container'>
+      <text class='num-pre'>数量</text>
+      <view class="buy-num-container">
+        <view class="jian-btn" catchtap="jianBtnTap">-</view>
+        <view class='goods-buy-num'>{{goodsNum}}</view>
+        <view class="jia-btn" catchtap="jiaBtnTap">+</view>
+      </view>
+    </view>     
+     <view class='li-ji-dui-huan' bindtap='lijiduihuanClick'>立即兑换</view>
+
+    </view>
+  </view>
+  </view>
+</view>

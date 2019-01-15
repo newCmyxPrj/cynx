@@ -1,0 +1,89 @@
+<!--pages/miaoSha/miaoSha.wxml-->
+<!--pages/pinTuan/pinTuan.wxml-->
+<scroll-view scroll-y class='mycontainer'>
+  <view class='pin-tuan-container'>
+    <image class='banner-image' src='{{dataObj.showImages}}'></image>
+    <view class='head-container'>
+      <view class='head-first-line-container'>
+        <text class='tuan-num'>{{dataObj.name}}</text>
+        <text class='tuan-num'>￥{{dataObj.pikePrice}}</text>
+        <text class='end-pre-text'>距离活动结束</text>
+      </view>
+      <view class='head-second-line-container'>
+        <text class='yuan-jia'>原价：</text>
+        <view class='origin-price'>￥{{dataObj.originalPrice}}
+          <view class='origin-line'></view>
+        </view>
+        <view class='timer-container'>
+          <view class='timer-bg'>{{day}}</view>
+          <view class='date-danwei'>天</view>
+          <view class='timer-bg'>{{hour}}</view>
+          <text class='timer-gap'>:</text>
+
+          <view class='timer-bg'>{{miniute}}</view>
+          <text class='timer-gap'>:</text>
+          <view class='timer-bg'>{{second}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='fenxiang-item-container'>
+      <view class='left'>{{dataObj.projectName}}</view>
+      <button class='share-button' id="shareBtn" open-type="share">分享</button>
+    </view>
+    <view class='ping-tuan-info'>{{dataObj.name}} 成功砍价后可在 【我的】-【我的 活动】-【砍价】中查看。</view>
+    <view class='huo-dong-shuo-ming'>砍价进度</view>
+    <view class='kan-jia-jing-du'>
+      <view class='kan-jia-title'>已砍¥40元，还能再砍80元</view>
+      <view class='kan-jia-progress-bar'>
+        <view class='jin-du-bar' style='width:{{percent}}'></view>
+      </view>
+      <view class='kan-jia-price-container'>
+        <view class='left-price'>￥258</view>
+        <view class='right-price'>￥168</view>
+      </view>
+    </view>
+    <view class='huo-dong-shuo-ming'>砍价明细</view>
+    <view class='cut-price-member-list-container'>
+      <view class='cut-item' wx:for="{{[1,2,3]}}" wx:key='ids'>
+        <image class='member-icon'></image>
+        <view class='middle-info-container'>
+          <text class='member-name'>幻听</text>
+          <text class='member-time'>受邀时间:2018-09-09</text>
+        </view>
+        <view class='cut-money'>帮砍2元</view>
+      </view>
+    </view>
+
+    <view class='huo-dong-shuo-ming'>活动说明</view>
+    <view class='shuo-ming-container'>
+    <text>1、有效期：{{dataObj.startTime}} - {{dataObj.endTime}}</text>
+      <text>2、适用人数：{{dataObj.quota}}人</text>
+      <text>3、规格提醒：长短发不限，不与其他优惠同享</text>
+    </view>
+  </view>
+  <view class='bottom-container'>
+    <view class='dao-hang'>导航</view>
+    <view class='gap-line'></view>
+    <view class='zi-xun'>咨询</view>
+    <!-- <view class='share-btn'>分享给好友</view> -->
+<button class='share-btn' id="shareBtn" open-type="share">分享给好友</button>
+    <view class='kan-jia-btn' bindtap='kanJiaBtnClick'>我要砍价</view>
+  </view>
+
+  <view class="show-remove-focus-popup" catchtouchmove='touchMove' hidden='{{hidePopWindowFlag}}'>
+    <view class='popup-mask' catchtap='shop_youhuijuan_popwindow_dimiss'>
+      <view class="you-hui-juan-popup-contents" catchtap='you_hui_quan_popup_contents_click'>
+        <!-- <view class='title'>优惠券</view> -->
+        <view class='share-item-container1'>
+          <view class='share-item'>
+            <image class='weixin-icon' src='../../images/home/weixin_icon.png'></image>
+            <view class='weixin'>微信</view>
+          </view>
+        </view>
+        <view class='share-item-container2'>完成分享</view>
+
+      </view>
+    </view>
+  </view>
+
+</scroll-view>

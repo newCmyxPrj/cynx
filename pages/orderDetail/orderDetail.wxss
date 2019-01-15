@@ -1,0 +1,154 @@
+/* pages/orderDetail/orderDetail.wxss */
+.goods-detail-container
+{
+  display: flex;
+  flex-direction: column;
+  position:fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+}
+.personal-container
+{
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  height: 196rpx;
+  background-color: #fff;
+  align-items: center;
+  position: relative;
+}
+.personal-container .head-icon
+{
+  width: 136rpx;
+  height: 136rpx;
+  border-radius: 50%;
+  background-color: #eee;
+  margin-left: 30rpx;
+}
+.personal-container .personal-info
+{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+.personal-container .name
+{
+  color: #333;
+  font-size: 28rpx;
+}
+.personal-container .rank
+{
+  color: #999;
+  font-size: 22rpx;
+}
+.my_personal_home
+{
+  color: #f42c90;
+  font-size: 24rpx;
+  padding: 5rpx 20rpx;
+  border: 2rpx solid #f42c90;
+  border-radius: 60rpx;
+  position:absolute;
+  right: 52rpx;
+}
+.item
+{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30rpx 30rpx;
+  color: #222;
+  font-size: 30rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #eee;
+}
+
+.middle-part
+{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30rpx 60rpx;
+  background-color: #fff;
+  border-bottom: 2rpx solid #eee;
+}
+.project-name
+{
+  color: #222;
+  font-size: 30rpx;
+}
+
+.item-price-container
+{
+  display: flex;
+  align-items: center;
+}
+
+.item-price-container .item-price
+{
+  height: 32rpx;
+  line-height: 32rpx;
+  color: #222;
+  font-size: 28rpx;
+}
+.item-price-container .origin-price
+{
+  display: flex;
+  position: relative;
+  margin-left: 20rpx;
+}
+.item-price-container .origin-price-text
+{
+  height: 32rpx;
+  line-height: 32rpx;
+  color: #aaa;
+  font-size: 24rpx;
+}
+
+.item-price-container .origin-price .origin-line
+{
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  background-color: #aaa;
+  height: 3rpx;
+  top: 40%;
+}
+
+.bottom-part
+{
+  color: #222;
+  font-size: 28rpx;
+  height: 88rpx;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 50rpx;
+  align-items: center;
+  border-bottom: 10rpx solid #eee;
+  background-color: #fff;
+}
+.detail-info
+{
+  width: 100%;
+  margin-top: 20rpx;
+  padding: 20rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+.order-info
+{
+  color: #222;
+  font-size: 30rpx;
+}
+.order-num
+{
+  color: #999;
+  font-size: 24rpx;
+}
+.order-time
+{
+  color: #999;
+  font-size: 24rpx;
+}

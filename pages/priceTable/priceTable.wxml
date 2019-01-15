@@ -1,0 +1,31 @@
+<!--pages/priceTable/priceTable.wxml-->
+<view class='container'>
+  <!-- 左侧导航 -->
+  <view class="left-slide">
+    <block wx:for="{{dataObj}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+      <view class="silde-container">
+        <view class="silde-item {{_num == index ?'selected':''}}" bindtap="menuClick" data-num="{{index}}">{{item.name}}</view>
+      </view>
+    </block>
+  </view>
+
+  <scroll-view scroll-y class="right-silder">
+    <view  wx:for="{{dataObj[_num].projectInfoList}}" wx:key="ids">
+      <view class='flex-row-1'>
+        <image class='art-image-artist-icon' src='{{item.imgUrl}}' />
+        <view class='flex-column-1 one-line-with-dot'>
+          <text class='item-name'>{{item.projectName}}</text>
+          <view class='item-second-line-container'>
+            <text class='item-price'>￥{{item.projectNowPrice}}</text>
+            <view class='origin-price'>
+              <text class='origin-price-text'>￥{{item.projectOriginalPrice}}</text>
+              <view class='origin-line'></view>
+            </view>
+          </view>
+          <!-- item.saleCount -->
+          <text class='sailed-text'>已售0</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

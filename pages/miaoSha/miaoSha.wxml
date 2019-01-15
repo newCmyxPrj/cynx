@@ -1,0 +1,50 @@
+<scroll-view scroll-y class='mycontainer'>
+  <view class='pin-tuan-container'>
+    <image class='banner-image' src='{{dataObj.showImages}}' mode='aspectFill'></image>
+    <view class='head-container'>
+      <view class='head-first-line-container'>
+        <text class='tuan-num'>秒杀价</text>
+        <text class='tuan-num'>￥{{dataObj.pikePrice}}</text>
+        <text class='end-pre-text'>距离活动结束</text>
+      </view>
+      <view class='head-second-line-container'>
+        <text class='yuan-jia'>原价：</text>
+        <view class='origin-price'>￥{{dataObj.originalPrice}}
+          <view class='origin-line'></view>
+        </view>
+        <view class='timer-container'>
+          <view class='timer-bg'>{{day}}</view>
+          <view class='date-danwei'>天</view>
+          <view class='timer-bg'>{{hour}}</view>
+          <text class='timer-gap'>:</text>
+
+          <view class='timer-bg'>{{miniute}}</view>
+          <text class='timer-gap'>:</text>
+          <view class='timer-bg'>{{second}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='fenxiang-item-container'>
+      <view class='left'>{{dataObj.name}}</view>
+      <!-- <view class='right'>分享</view> -->
+      <button class='share-button' id="shareBtn" open-type="share">分享</button>
+    </view>
+    <view class='ping-tuan-info'>{{dataObj.name}} 成功拼团后可在 【我的】-【我的 活动】-【秒杀】中查看。</view>
+
+  
+    <view class='huo-dong-shuo-ming'>活动说明</view>
+    <view class='shuo-ming-container'>
+      <text>1、有效期：{{dataObj.startTime}} - {{dataObj.endTime}}</text>
+      <text>2、适用人数：{{dataObj.quota}}人</text>
+      <text>3、规格提醒：长短发不限，不与其他优惠同享</text>
+    </view>
+  </view>
+  <view class='bottom-container'>
+  <view class='dao-hang'>导航</view>
+  <view class='gap-line'></view>
+  <view class='zi-xun'>咨询</view>
+  <view class='li-ji-qiang-gou' bindtap='miaoShaBtnClick'>立即秒杀</view>
+
+  </view>
+
+</scroll-view>

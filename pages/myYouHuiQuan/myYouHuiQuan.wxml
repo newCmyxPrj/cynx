@@ -1,0 +1,40 @@
+<!--pages/myYouHuiQuan/myYouHuiQuan.wxml-->
+<view class='my-container'>
+
+  <view class='focus-type-container'>
+    <view class='left-part {{leftPartSelectFlag ? "select-color":""}}' bindtap='my_you_hui_quan_no_die_jia_click'>
+      <view class='title'>不可叠加使用</view>
+      <view class='{{leftPartSelectFlag ? "title-select":""}}'></view>
+    </view>
+    <view class='middle-part'>
+    </view>
+    <view class='right-part {{leftPartSelectFlag ? "":"select-color"}}' bindtap='my_you_hui_quan_die_jia_click'>
+      <view class='title'>可叠加的券</view>
+      <view class='{{leftPartSelectFlag ? "":"title-select"}}'></view>
+    </view>
+  </view>
+  <scroll-view scroll-y='true' style='width:100%;height:100%;poisition:fixed;z-index:1;margin-top:80rpx;' hidden='{{leftPartSelectFlag==false}}'>
+    <view class='coupon-container' wx:for="{{[1,2,3,4,5,6,7,8,9]}}">
+      <view class='coupon-content'>
+        <view class='text1'>
+        <text>￥599</text>
+      <view class='zhuan-zeng'>转赠</view>
+        </view>
+        <view class='text2'>有效期：2018.07.01-2018.11.11</view>
+        <view class='text3'>消费满1478元使用</view>
+      </view>
+    </view>
+  </scroll-view>
+    <scroll-view scroll-y='true' style='width:100%;height:100%;poisition:fixed;z-index:1;margin-top:80rpx;' hidden='{{leftPartSelectFlag==true}}'>
+    <view class='coupon-container' wx:for="{{[1,2,3,4,5,6,7,8,9]}}">
+      <view class='coupon-content'>
+        <view class='text1'>
+        <text>￥599</text>
+      <view class='zhuan-zeng'>转赠</view>
+        </view>
+        <view class='text2'>有效期：2018.07.01-2018.11.11</view>
+        <view class='text3'>消费满1478元使用</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

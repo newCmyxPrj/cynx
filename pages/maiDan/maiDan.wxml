@@ -1,0 +1,62 @@
+<!--pages/maiDan/maiDan.wxml-->
+<!--pages/priceTable/priceTable.wxml-->
+<view class='my-container'>
+  <view class='cutter-info-container'>
+    <image class='cutter-icon' src='{{cutterInfo.avatar}}'></image>
+    <view class='cutter-info'>
+      <view class='info-name'>{{cutterInfo.nickName}}</view>
+      <view class='info-level'>{{cutterInfo.positionName}}</view>
+      <view class='info-count'>服务{{cutterInfo.serviceCount}}次</view>
+      <view class='re-select'  bindtap='reSelectBtn'>重新选择 ></view>
+    </view>
+  </view>
+
+
+  <view class='container-1'>
+    <!-- 左侧导航 -->
+    <view class="left-slide">
+      <block wx:for="{{dataObj.projectCategoryDTOList}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+        <view class="silde-container">
+          <view class="silde-item {{_num == index ?'selected':''}}" bindtap="menuClick" data-num="{{index}}">{{item.name}}</view>
+        </view>
+      </block>
+    </view>
+
+    <scroll-view scroll-y class="right-silder">
+      <view wx:for="{{dataObj.projectCategoryDTOList[_num].projectInfoList}}" wx:key="ids" wx:for-index="prjIndex">
+        <view class='flex-row-1'>
+          <image class='art-image-artist-icon' src='{{item.imgUrl}}' />
+          <view class='flex-column-1 one-line-with-dot'>
+            <text class='item-name'>{{item.projectName}}</text>
+            <view class='item-second-line-container'>
+              <text class='item-price'>￥{{item.projectNowPrice}}</text>
+              <view class='origin-price'>
+                <text class='origin-price-text'>￥{{item.projectOriginalPrice}}</text>
+                <view class='origin-line'></view>
+              </view>
+            </view>
+            <!-- item.saleCount -->
+            <text class='sailed-text'>已售{{item.saleCount}}</text>
+          </view>
+        
+          <view class="buy-num-container">
+            <view class="jian-btn" catchtap="jianBtnTap" data-prjindex="{{prjIndex}}"  >-</view>
+            <view class='goods-buy-num'>{{item.quantity}}</view>
+            <view class="jia-btn" catchtap="jiaBtnTap" data-prjindex="{{prjIndex}}">+</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class='footer-container'>
+    <view class='qing-dan'>清单</view>
+    <view class='sum-money'>合计</view>
+    <view class='sum-price'>￥{{dataObj.costSum}}</view>
+    <view class='sum-btn-container' style=''>
+      <!-- <view class='zeng-song'>赠送</view>
+      <view class='suo-yao'>索要</view> -->
+      <view class='jie-suan' bindtap='jieSuanBtnClick'>结算</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,206 @@
+<!--pages/myOrderList/myOrderList.wxml-->
+<view class="container">
+  <view class="status-box PingFangSC-Regular">
+    <view bindtap="statusTap" class="status-label" wx:for-items="{{statusType}}" wx:key="{{index}}" data-index="{{index}}">
+      <text class="{{index == currentType ? 'active' :''}}">{{item}}</text>
+      <view class="{{tabClass[index]}}"></view>
+    </view>
+  </view>
+
+  <!-- <view class="no-order" hidden="{{orderList ? true : false}}">
+    <image src="/images/no-order.png" class="no-order-img"></image>
+    <view class="text">暂无订单</view>
+  </view> -->
+  <view class='all-order-list-container' wx:if="{{currentType==0||currentType==1||currentType==2||currentType==3||currentType==4}}">
+    <view class='all-order-list-item' wx:for='{{dataObj.list}}' wx:key='ids'  bindtap='orderDetailItemClick' data-index='{{index}}'>
+      <view class='head-part'>
+        <image class='head-icon' src='{{item.avatar}}'></image>
+        <view class='head-info-container'>
+          <view class='name'>{{item.nickName}}</view>
+          <view class='rank'>{{item.positionName}}</view>
+        </view>
+        <text class='status' wx:if="{{item.status==yiWanChengType}}">已完成</text>
+        <text class='status' style='color:#f42c90' wx:elif="{{item.status==daiPingLunType}}">待评论</text>
+        <text class='status' style='color:#f42c90' wx:elif="{{item.status==daiFuKuanType}}">待付款</text>
+        <text class='status' wx:elif="{{item.status==yiQuXiaoType}}">已取消</text>
+
+      </view>
+      <view class='middle-part' wx:for='{{item.detailList}}' wx:key="ids2" wx:for-item="detailItem">
+        <view style='display:flex;justify-content:space-between'>
+          <view class='project-name'>{{detailItem.projectName}}</view>
+          <view class='project-name'>x{{detailItem.quantity}}</view>
+        </view>
+        <view class='item-price-container'>
+          <text class='item-price'>￥{{detailItem.nowAmount}}</text>
+          <view class='origin-price'>
+            <text class='origin-price-text'>￥{{detailItem.originalAmount}}</text>
+            <view class='origin-line'></view>
+          </view>
+        </view>
+      </view>
+      <view class='bottom-part'>
+        <view>合计：￥{{item.totalAmount}}</view>
+      </view>
+      <view class='ping-lun-btns-container' wx:if='{{item.type==1}}'>
+        <view class='delete-order' bindtap='deleteOrder'>删除订单</view>
+        <view class='go-to-pin-lun' bindtap='quPingLunClick'>去评论</view>
+      </view>
+      <view class='order-gap-line'></view>
+    </view>
+  </view>
+
+  <!-- <view class='all-order-list-container' wx:elif="{{currentType==1}}">
+    <view class='all-order-list-item' wx:for='{{daiFuKuanDataList}}' wx:key='ids'>
+      <view class='head-part'>
+        <image class='head-icon' src=''></image>
+        <view class='head-info-container'>
+          <view class='name'>Tony</view>
+          <view class='rank'>剪艺组总监</view>
+        </view>
+        <text class='status' wx:if="{{item.type==2}}">已完成</text>
+        <text class='status' style='color:#f42c90' wx:elif="{{item.type==1}}">待评论</text>
+        <text class='status' style='color:#f42c90' wx:elif="{{item.type==0}}">待付款</text>
+        <text class='status' wx:elif="{{item.type==3}}">已取消</text>
+
+      </view>
+      <view class='middle-part' wx:for='{{[1,2,3]}}'>
+        <view style='display:flex;justify-content:space-between'>
+          <view class='project-name'>洗吹</view>
+          <view class='project-name'>x1</view>
+        </view>
+        <view class='item-price-container'>
+          <text class='item-price'>￥168</text>
+          <view class='origin-price'>
+            <text class='origin-price-text'>￥268</text>
+            <view class='origin-line'></view>
+          </view>
+        </view>
+      </view>
+      <view class='bottom-part'>
+        <view>合计：￥504</view>
+      </view>
+      <view class='ping-lun-btns-container' wx:if='{{item.type==1}}'>
+        <view class='delete-order' bindtap='deleteOrder'>删除订单</view>
+        <view class='go-to-pin-lun' bindtap='quPingLunClick'>去评论</view>
+      </view>
+      <view class='order-gap-line'></view>
+    </view>
+  </view>
+
+
+ <view class='all-order-list-container' wx:elif="{{currentType==2}}">
+    <view class='all-order-list-item' wx:for='{{pingLunDataList}}' wx:key='ids'>
+      <view class='head-part'>
+        <image class='head-icon' src=''></image>
+        <view class='head-info-container'>
+          <view class='name'>Tony</view>
+          <view class='rank'>剪艺组总监</view>
+        </view>
+        <text class='status' wx:if="{{item.type==2}}">已完成</text>
+        <text class='status' style='color:#f42c90' wx:elif="{{item.type==1}}">待评论</text>
+        <text class='status' style='color:#f42c90' wx:elif="{{item.type==0}}">待付款</text>
+        <text class='status' wx:elif="{{item.type==3}}">已取消</text>
+
+      </view>
+      <view class='middle-part' wx:for='{{[1,2,3]}}'>
+        <view style='display:flex;justify-content:space-between'>
+          <view class='project-name'>洗吹</view>
+          <view class='project-name'>x1</view>
+        </view>
+        <view class='item-price-container'>
+          <text class='item-price'>￥168</text>
+          <view class='origin-price'>
+            <text class='origin-price-text'>￥268</text>
+            <view class='origin-line'></view>
+          </view>
+        </view>
+      </view>
+      <view class='bottom-part'>
+        <view>合计：￥504</view>
+      </view>
+      <view class='ping-lun-btns-container' wx:if='{{item.type==1}}'>
+        <view class='delete-order' bindtap='deleteOrder'>删除订单</view>
+        <view class='go-to-pin-lun' bindtap='quPingLunClick'>去评论</view>
+      </view>
+      <view class='order-gap-line'></view>
+    </view>
+  </view>
+
+  <view class='all-order-list-container' wx:elif="{{currentType==3}}">
+    <view class='all-order-list-item' wx:for='{{yiWanChengDataList}}' wx:key='ids'>
+      <view class='head-part'>
+        <image class='head-icon' src=''></image>
+        <view class='head-info-container'>
+          <view class='name'>Tony</view>
+          <view class='rank'>剪艺组总监</view>
+        </view>
+        <text class='status' wx:if="{{item.type==2}}">已完成</text>
+        <text class='status' style='color:#f42c90' wx:elif="{{item.type==1}}">待评论</text>
+        <text class='status' style='color:#f42c90' wx:elif="{{item.type==0}}">待付款</text>
+        <text class='status' wx:elif="{{item.type==3}}">已取消</text>
+
+      </view>
+      <view class='middle-part' wx:for='{{[1,2,3]}}'>
+        <view style='display:flex;justify-content:space-between'>
+          <view class='project-name'>洗吹</view>
+          <view class='project-name'>x1</view>
+        </view>
+        <view class='item-price-container'>
+          <text class='item-price'>￥168</text>
+          <view class='origin-price'>
+            <text class='origin-price-text'>￥268</text>
+            <view class='origin-line'></view>
+          </view>
+        </view>
+      </view>
+      <view class='bottom-part'>
+        <view>合计：￥504</view>
+      </view>
+      <view class='ping-lun-btns-container' wx:if='{{item.type==1}}'>
+        <view class='delete-order' bindtap='deleteOrder'>删除订单</view>
+        <view class='go-to-pin-lun' bindtap='quPingLunClick'>去评论</view>
+      </view>
+      <view class='order-gap-line'></view>
+    </view>
+  </view>
+
+<view class='all-order-list-container' wx:elif="{{currentType==4}}">
+    <view class='all-order-list-item' wx:for='{{yiQuXiaoDataList}}' wx:key='ids'>
+      <view class='head-part'>
+        <image class='head-icon' src=''></image>
+        <view class='head-info-container'>
+          <view class='name'>Tony</view>
+          <view class='rank'>剪艺组总监</view>
+        </view>
+        <text class='status' wx:if="{{item.type==2}}">已完成</text>
+        <text class='status' style='color:#f42c90' wx:elif="{{item.type==1}}">待评论</text>
+        <text class='status' style='color:#f42c90' wx:elif="{{item.type==0}}">待付款</text>
+        <text class='status' wx:elif="{{item.type==3}}">已取消</text>
+
+      </view>
+      <view class='middle-part' wx:for='{{[1,2,3]}}'>
+        <view style='display:flex;justify-content:space-between'>
+          <view class='project-name'>洗吹</view>
+          <view class='project-name'>x1</view>
+        </view>
+        <view class='item-price-container'>
+          <text class='item-price'>￥168</text>
+          <view class='origin-price'>
+            <text class='origin-price-text'>￥268</text>
+            <view class='origin-line'></view>
+          </view>
+        </view>
+      </view>
+      <view class='bottom-part'>
+        <view>合计：￥504</view>
+      </view>
+      <view class='ping-lun-btns-container' wx:if='{{item.type==1}}'>
+        <view class='delete-order' bindtap='deleteOrder'>删除订单</view>
+        <view class='go-to-pin-lun' bindtap='quPingLunClick'>去评论</view>
+      </view>
+      <view class='order-gap-line'></view>
+    </view>
+  </view> -->
+
+
+</view>

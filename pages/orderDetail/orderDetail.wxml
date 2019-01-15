@@ -1,0 +1,40 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class='goods-detail-container'>
+  <view class='personal-container'>
+    <image class='head-icon' src='{{dataObj.avatar}}'></image>
+    <view class='personal-info'>
+      <view class='name'>{{dataObj.nickName}}</view>
+      <view class='rank'>{{dataObj.positionName}}</view>
+    </view>
+    <view class='my_personal_home' bindtap='goToPersonalHome'>个人主页</view>
+  </view>
+  <view style='margin-top:20rpx;'></view>
+  <view class='item'>
+    <view>订单详情</view>
+    <view style='color:#f42c90' wx:if="{{dataObj.status==daiFuKuanType}}">待付款</view>
+        <view style='color:#f42c90' wx:if="{{dataObj.status==daiPingLunType}}">待评价</view>
+            <view style='color:#f42c90' wx:if="{{dataObj.status==yiWanChengType}}">已完成</view>
+                <view style='color:#f42c90' wx:if="{{dataObj.status==yiQuXiaoType}}">已取消</view>
+  </view>
+  <view class='middle-part' wx:for='{{dataObj.detailList}}' wx:key="ids">
+    <view style='display:flex;justify-content:space-between'>
+      <view class='project-name'>{{item.projectName}}</view>
+      <view class='project-name'>x{{item.quantity}}</view>
+    </view>
+    <view class='item-price-container'>
+      <text class='item-price'>￥{{item.nowAmount}}</text>
+      <view class='origin-price'>
+        <text class='origin-price-text'>￥{{item.originalAmount}}</text>
+        <view class='origin-line'></view>
+      </view>
+    </view>
+  </view>
+  <view class='bottom-part'>
+    <view>合计：￥{{dataObj.totalAmount}}</view>
+  </view>
+  <view class='detail-info'>
+  <view class='order-info'>订单信息</view>
+  <view class='order-num'>下单编号:{{dataObj.orderNo}}</view>
+  <view class='order-time'>下单时间:{{dataObj.orderTime}}</view>
+  </view>
+</view>

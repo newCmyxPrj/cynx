@@ -1,0 +1,24 @@
+<!--pages/cutterSelect/cutterSelect.wxml-->
+<!--pages/yuYue/yuYue.wxml-->
+<view class='container'>
+  <view class='item-container' wx:for="{{dataObj}}" wx:key="ids" >
+    <image class='image-icon' src='{{item.avatar}}' bindtap='goToPersonalHome' data-index='{{index}}' >
+    </image>
+    <view class='info-container'>
+      <view class='name'>{{item.nickName}}
+        <text class='rank'>{{item.positionName}}</text>
+      </view>
+      <view class='service-count'>已服务{{item.serviceCount}}次</view>
+      <view class='item-second-line-container'>
+        <text class='item-price'>￥{{item.haircutNowPrice}}</text>
+        <view class='origin-price'>
+          <text class='origin-price-text'>￥{{item.haircutOriginalPrice}}</text>
+          <view class='origin-line'></view>
+        </view>
+      </view>
+    </view>
+    <view class='right-part-container'>
+    <view class='dashan' bindtap='okBtnClick' data-employeeid="{{item.employeeInfoId}}" data-index="{{index}}">确认</view>
+    </view>
+  </view>
+</view>

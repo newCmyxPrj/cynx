@@ -1,0 +1,19 @@
+<!--pages/cardList/cardList.wxml-->
+<scroll-view scroll-y='true' style='width:100%;height:100%;poisition:fixed;z-index:1;'>
+  <view class='contianer'>
+    <view class='card-container' wx:for='{{dataObj}}' bindtap='cardItemClick' wx:key="ids"  data-index="{{index}}">
+      <view class='card-line-1-container'>
+        <view style='display:flex'>
+          <image class='head-icon' src='{{item.avatar}}' mode='aspectFill'></image>
+          <view class='card-info-middle'>
+            <view>{{item.nickName}}</view>
+            <view style='font-size:20rpx;margin-top:10rpx;'>{{item.memo}}</view>
+          </view>
+        </view>
+        <view class='card-info-right'>{{item.cardName}}</view>
+      </view>
+      <view class='card-name'>{{item.storeName}}</view>
+      <view class='hui-yuan'>会员</view>
+    </view>
+  </view>
+</scroll-view>

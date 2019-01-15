@@ -1,0 +1,38 @@
+<!--pages/comment/comment.wxml-->
+<view class='container'>
+  <view class="comment1-description">
+    <view class="comment1-description1">综合评价</view>
+    <view class="star-pos" style="display:flex;flex-direction:row;">
+      <view class="star-icon  {{starsNum>=1? '': 'star-unselect'}}" bindtap="touchStar" data-index="1"></view>
+      <view class="star-icon  {{starsNum>=2? '': 'star-unselect'}}" bindtap="touchStar" data-index="2"></view>
+      <view class="star-icon  {{starsNum>=3? '': 'star-unselect'}}" bindtap="touchStar" data-index="3"></view>
+      <view class="star-icon  {{starsNum>=4? '': 'star-unselect'}}" bindtap="touchStar" data-index="4"></view>
+      <view class="star-icon  {{starsNum>=5? '': 'star-unselect'}}" bindtap="touchStar" data-index="5"></view>
+    </view>
+    <view class="comment1-description1 comment1-end-color">{{isCalful}}</view>
+  </view>
+  <view class="selected-comment-container">
+    <block wx:for="{{commentArray5}}" wx:key="ids5" wx:if='{{starsNum==5}}'>
+      <view class='{{item.select==true ? "comment-item-selected":"comment-item-unselected"}}' bindtap='comment5_item_click' data-index="{{index}}">{{item.value}}</view>
+    </block>
+    <block wx:for="{{commentArray4}}" wx:key="ids4" wx:if='{{starsNum==4}}'>
+      <view class='{{item.select==true ? "comment-item-selected":"comment-item-unselected"}}' bindtap='comment4_item_click' data-index="{{index}}">{{item.value}}</view>
+    </block>
+    <block wx:for="{{commentArray3}}" wx:key="ids3" wx:if='{{starsNum==3}}'>
+      <view class='{{item.select==true ? "comment-item-selected":"comment-item-unselected"}}' bindtap='comment3_item_click' data-index="{{index}}">{{item.value}}</view>
+    </block>
+    <block wx:for="{{commentArray2}}" wx:key="ids2" wx:if='{{starsNum==2}}'>
+      <view class='{{item.select==true ? "comment-item-selected":"comment-item-unselected"}}' bindtap='comment2_item_click' data-index="{{index}}">{{item.value}}</view>
+    </block>
+    <block wx:for="{{commentArray1}}" wx:key="ids1" wx:if='{{starsNum==1}}'>
+      <view class='{{item.select==true ? "comment-item-selected":"comment-item-unselected"}}' bindtap='comment1_item_click' data-index="{{index}}">{{item.value}}</view>
+    </block>
+  </view>
+  <view class='comment-container'>
+    <input type="text" placeholder="说说你的使用心得，分享给好友吧..." class="input-name" bindinput='bindInputCommentStr' value='{{commentStr}}' />
+    <image class='camera-btn' src="" bindtap='cameraBtnClick'></image>
+  </view>
+   <view class='commit-btn PingFangSC-Medium'>
+    <text bindtap='commit_btn_click'>发 表</text>
+  </view>
+</view>
