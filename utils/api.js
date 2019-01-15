@@ -52,7 +52,7 @@ const urlString = {
   bargainJoinRecordByUserAndMerchantId: "/app/activity/bargainJoinRecordByUserAndMerchantId", //参与砍价记录
 
   queryUserCard: "/app/user/queryUserCard", //获取会员的会员卡列表 
-  cardRecharge: "/app/user/cardRecharge", //会员卡充值(管理端)
+  cardRecharge: "/app/trade/cardRecharge", //会员卡充值(管理端)
   updateAppointmentStatus: "/app/appointment/updateAppointmentStatus", //取消预约
   exchangeGoods: "/app/user/exchange", //兑换商品
   queryUserCoupon:"/app/order/queryUserCoupon",//获取用户优惠券
